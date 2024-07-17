@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo12</title>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.5/aframe/build/aframe-ar.js"></script>
+    <script data-consolejs-channel="0a346868-731a-6fd8-51a8-2636d39847a5" src="https://remotejs.com/agent/agent.js"></script>
+    <script src="assets/events.js?v=20240717001"></script>
+    <link rel="stylesheet" href="assets/main.css">
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+        <div id="fixed-video-container-1" class="fixed-video-container">
+            <a href="#" class="close-btn">×</a>
+            <video id="fixed-video-1" src="assets/images/demo-1.mp4" loop="true" muted playsinline crossorigin></video>
+            <p>This is a test information for Demo 1.</p>
+        </div>
+        <div id="fixed-video-container-2" class="fixed-video-container">
+            <a href="#" class="close-btn">×</a>
+            <video id="fixed-video-2" src="assets/images/demo-2.mp4" loop="true" muted playsinline crossorigin></video>
+            <p>This is a test information for Demo 2.</p>
+        </div>
+        <div id="fixed-video-container-3" class="fixed-video-container">
+            <a href="#" class="close-btn">×</a>
+            <video id="fixed-video-3" src="assets/images/demo-3.mp4" loop="true" muted playsinline crossorigin></video>
+            <p>This is a test information for Demo 3.</p>
+        </div>
+      <a-scene cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
+      vr-mode-ui="enabled: false"
+      embedded
+      arjs='sourceType: webcam; debugUIEnabled: false;detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_9_3;'>
+            
+            <a-assets>
+                <video id="tour-video-1" src="assets/images/demo-1.mp4" loop="true" muted playsinline crossorigin></video>
+                <video id="tour-video-2" src="assets/images/demo-2.mp4" loop="true" muted playsinline crossorigin></video>
+                <video id="tour-video-3" src="assets/images/demo-3.mp4" loop="true" muted playsinline crossorigin></video>
+            </a-assets>
+            <a-marker type='pattern' url='assets/images/pattern-marker-1.patt' video-handler-1>
+                <a-plane fixed-video-1 position='0 0 0' scale="1 1 1" width="1" rotation="-90 0 0" material='transparent:true; opacity: 0.9; src:#tour-video-1'></a-plane>
+            </a-marker>
+
+            <a-marker type='pattern' url='assets/images/pattern-marker-2.patt' video-handler-2>
+                <a-plane fixed-video-2 position='0 0 0' scale="1 1 1" width="1" rotation="-90 0 0" material='transparent:true; opacity: 0.9; src:#tour-video-2'></a-plane>
+            </a-marker>
+
+            <a-marker type='pattern' url='assets/images/text01.patt' video-handler-3>
+                <a-plane fixed-video-3 position='0 0 0' scale="1 1 1" width="1" rotation="-90 0 0" material='transparent:true; opacity: 0.9; src:#tour-video-3'></a-plane>
+            </a-marker>
+            <a-marker type='pattern' url='assets/images/pattern-marker-4.patt' video-handler-3>
+                <a-plane fixed-video-3 position='0 0 0' scale="1 1 1" width="1" rotation="-90 0 0" material='transparent:true; opacity: 0.9; src:#tour-video-3'></a-plane>
+            </a-marker>
+
+            <a-entity camera></a-entity>
+      </a-scene>
+</body>
+</html>
